@@ -1,6 +1,10 @@
+import { BrowserRouter } from "react-router-dom";
+
 function App() {
   return (
+    <BrowserRouter>
     <h1>teste</h1>
+    </BrowserRouter>
   );
 }
 
