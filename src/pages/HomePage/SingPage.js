@@ -3,18 +3,31 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function sub(){
-    alert('sub')
-}
+
 
 export default function SingPage() {
     
     const [email,setEmail] = useState()
-    const [senha,setSenha] = useState()
-    const [nome,setNome] = useState()
-    const [foto,setFoto] = useState()
-    const[load,setLoad] = useState(false)
+    const [password,setPassword] = useState()
+    const [name,setName] = useState()
+    const [image,setImage] = useState()
+    const [load,setLoad] = useState(false)
    const navigate=useNavigate()
+
+   
+    function sub(elemento){
+
+        elemento.preventDefault();
+        setLoad(true)
+        const corpo={email,name,image,
+                     password}
+                     console.log(corpo);
+       const logar=axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up',corpo)
+
+       logar.then((ele)=>navigate('/'))
+
+       logar.catch(()=> alert('erro ao criar conta'),setLoad(false))
+    }
 
 
     function cadastro(){
@@ -28,7 +41,7 @@ export default function SingPage() {
     <input
     disabled={load}
     id="email"
-    type="text"
+    type="email"
     required
     value={email}
     onChange={e => setEmail(e.target.value)}
@@ -36,29 +49,29 @@ export default function SingPage() {
 
     <input
     disabled={load}
-    id="senha"
+    id="password"
     type="password"
     required
-    value={senha}
-    onChange={e => setSenha(e.target.value)}
+    value={password}
+    onChange={e => setPassword(e.target.value)}
     placeholder="Senha" />
 
 <input
 disabled={load}
-    id="nome"
+    id="name"
     type="text"
     required
-    value={nome}
-    onChange={e => setNome(e.target.value)}
+    value={name}
+    onChange={e => setName(e.target.value)}
     placeholder="Nome" />
 
 <input
 disabled={load}
-    id="foto"
-    type="text"
+    id="image"
+    type="url"
     required
-    value={foto}
-    onChange={e => setFoto(e.target.value)}
+    value={image}
+    onChange={e => setImage(e.target.value)}
     placeholder="Foto" />
 
 
@@ -70,7 +83,7 @@ disabled={load}
 
 <Gambiarra onClick={cadastro} disabled={load}>
 
-<a >Não tem uma conta? Cadastre-se!</a>
+<a >Já tem uma conta? Faça login!</a>
 
 </Gambiarra>
 
