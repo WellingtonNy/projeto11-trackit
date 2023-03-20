@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function sub(){
     alert('sub')
@@ -13,13 +13,20 @@ export default function SingPage() {
     const [senha,setSenha] = useState()
     const [nome,setNome] = useState()
     const [foto,setFoto] = useState()
+    const[load,setLoad] = useState(false)
+   const navigate=useNavigate()
 
+
+    function cadastro(){
+        navigate('/');
+    }
 
     return(
     <Limite>
     <img src="assets/trackit.svg"></img>
     <Formulario onSubmit={sub}>
     <input
+    disabled={load}
     id="email"
     type="text"
     required
@@ -28,6 +35,7 @@ export default function SingPage() {
     placeholder="E-mail" />
 
     <input
+    disabled={load}
     id="senha"
     type="password"
     required
@@ -36,6 +44,7 @@ export default function SingPage() {
     placeholder="Senha" />
 
 <input
+disabled={load}
     id="nome"
     type="text"
     required
@@ -44,6 +53,7 @@ export default function SingPage() {
     placeholder="Nome" />
 
 <input
+disabled={load}
     id="foto"
     type="text"
     required
@@ -54,15 +64,35 @@ export default function SingPage() {
 
 
 
-<button type="submit">Cadastrar</button>
+<button disabled={load} type="submit">Cadastrar</button>
 
 </Formulario>
-<Link to='/'>
-<a>Já tem uma conta? Faça login!</a>
-</Link>
+
+<Gambiarra onClick={cadastro} disabled={load}>
+
+<a >Não tem uma conta? Cadastre-se!</a>
+
+</Gambiarra>
+
     </Limite>  
 )
 }
+
+const Gambiarra=styled.button`
+background-color: #ffffff;
+border: none;
+margin-top: 20px;
+a{
+font-family: Lexend Deca;
+font-size: 14px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0em;
+text-align: center;
+color: #52b6ff;
+margin-top: 20px;
+cursor: pointer;
+}`
 
 const Limite = styled.div`
 width: 100%;
