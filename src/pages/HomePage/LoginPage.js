@@ -2,12 +2,18 @@ import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Context, { AuthContext } from "../../auth";
+import React, { useContext } from "react";
+
 
 
 
 
 export default function LoginPage() {
-    
+
+    const {tk,setTk} = React.useContext(AuthContext);
+
+
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [load,setLoad]=useState(false)
@@ -28,9 +34,12 @@ export default function LoginPage() {
                     
        const logar=axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login',corpo)
 
-       logar.then((ele)=>console.log(ele.data),navigate('/hoje'))
+       logar.then((ele)=>setTk(ele.data),navigate('/hoje'))
+       
 
        logar.catch(()=> alert('erro ao logar'),setLoad(false))
+
+       console.log(tk);
     }
 
 

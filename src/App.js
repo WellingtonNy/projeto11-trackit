@@ -6,11 +6,17 @@ import SingPage from "./pages/HomePage/SingPage";
 import Historico from "./pages/Historico";
 import Habitos from "./pages/Habitos";
 import Hoje from "./pages/Hoje";
+import Context, { AuthContext } from "./auth";
+import React, { useContext } from "react";
+
+
+
 
 
 export default function App() {
 
-
+    //const {tk,setTk} = React.useContext(AuthContext);
+    
 
     return (
         <>
@@ -19,12 +25,15 @@ export default function App() {
 
 
                 <Routes>
-                <Route path="/" element={<LoginPage />} />
+
+                              
                 <Route path="/cadastro" element={<SingPage />} />
+                <Route path="/" element={<LoginPage />} />
                 <Route path="/hoje" element={<Hoje />} />
                 <Route path="/habitos" element={<Habitos />} />
                 <Route path="/historico" element={<Historico />} />
 
+                              
                 </Routes>
                 </Container>
             </BrowserRouter>
