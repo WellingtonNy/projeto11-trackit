@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 	*{
-		border-radius: border-box;
+		box-sizing: border-box;
 	}
 	
     input{
@@ -22,9 +22,21 @@ text-align: left;
 	}
 	input::placeholder{
 	 color: #DBDBDB;
-	 
 	 font-family: Lexend Deca;
 
+	}
+
+	h2{
+		
+font-family: 'Lexend Deca';
+font-style: normal;
+font-weight: 400;
+font-size: 22.976px;
+line-height: 29px;
+color: #126BA5;
+padding-left: 17px;
+padding-top: 30px;
+padding-bottom: 16px;
 	}
 
 `;

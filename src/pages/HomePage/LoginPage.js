@@ -2,6 +2,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Bot from "../../components/Bot";
+
 
 function sub(){
     alert('sub')
@@ -14,6 +16,7 @@ export default function LoginPage() {
 
     return(
     <Limite>
+        
     <img src="assets/trackit.svg"></img>
     <Formulario onSubmit={sub}>
     <input
@@ -37,14 +40,17 @@ export default function LoginPage() {
 <button type="submit">Entrar</button>
 
 </Formulario>
+<Link to='hoje'>ola</Link>
 <Link to='cadastro'>
 <a>Não tem uma conta? Cadastre-se!</a>
 </Link>
+
     </Limite> 
 )
 }
 
 const Limite = styled.div`
+position: relative;
 width: 100%;
 height:100% ;
 flex-direction: column;
