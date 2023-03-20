@@ -21,7 +21,7 @@ export default function SingPage() {
         setLoad(true)
         const corpo={email,name,image,
                      password}
-                     console.log(corpo);
+                    
        const logar=axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up',corpo)
 
        logar.then((ele)=>navigate('/'))

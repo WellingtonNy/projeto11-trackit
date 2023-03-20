@@ -25,10 +25,10 @@ export default function LoginPage() {
         setLoad(true)
         const corpo={email,
                      password}
-                     console.log(corpo);
+                    
        const logar=axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login',corpo)
 
-       logar.then((ele)=>navigate('/hoje'))
+       logar.then((ele)=>console.log(ele.data),navigate('/hoje'))
 
        logar.catch(()=> alert('erro ao logar'),setLoad(false))
     }
