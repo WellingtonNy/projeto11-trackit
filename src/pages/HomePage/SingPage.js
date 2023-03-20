@@ -39,6 +39,7 @@ export default function SingPage() {
     <img src="assets/trackit.svg"></img>
     <Formulario onSubmit={sub}>
     <input
+    data-test="email-input"
     disabled={load}
     id="email"
     type="email"
@@ -48,6 +49,7 @@ export default function SingPage() {
     placeholder="E-mail" />
 
     <input
+    data-test="password-input"
     disabled={load}
     id="password"
     type="password"
@@ -58,6 +60,7 @@ export default function SingPage() {
 
 <input
 disabled={load}
+data-test="user-name-input"
     id="name"
     type="text"
     required
@@ -67,6 +70,7 @@ disabled={load}
 
 <input
 disabled={load}
+data-test="user-image-input"
     id="image"
     type="url"
     required
@@ -77,11 +81,11 @@ disabled={load}
 
 
 
-<button disabled={load} type="submit">Cadastrar</button>
+<button data-test="signup-btn" disabled={load} type="submit">Cadastrar</button>
 
 </Formulario>
 
-<Gambiarra onClick={cadastro} disabled={load}>
+<Gambiarra data-test="login-link" onClick={cadastro} disabled={load}>
 
 <a >Já tem uma conta? Faça login!</a>
 

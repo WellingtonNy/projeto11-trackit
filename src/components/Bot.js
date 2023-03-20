@@ -3,16 +3,16 @@ import styled from "styled-components"
 
 export default function Bot(){
     return(
-        <Bots>
+        <Bots data-test="menu">
             <Cont>
-                <Link to='/habitos'>
+                <Link data-test="habit-link" to='/habitos'>
             <h1> Hábitos </h1>
             </Link>
 
-            <Link to='/hoje'>
+            <Link data-test="today-link" to='/hoje'>
             <h1>Hoje</h1>
             </Link>
-            <Link to='/historico'>
+            <Link data-test="history-link" to='/historico'>
             <h1>Histórico</h1>
             </Link>
             </Cont>

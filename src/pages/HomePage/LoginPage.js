@@ -52,6 +52,7 @@ export default function LoginPage() {
     <img src="assets/trackit.svg"></img>
     <Formulario onSubmit={sub}>
     <input
+    data-test="email-input"
     disabled={load}
     id="nome"
     type="email"
@@ -60,6 +61,7 @@ export default function LoginPage() {
     onChange={e => setEmail(e.target.value)}
     placeholder="E-mail" />
     <input
+     data-test="password-input"
     disabled={load}
     id="senha"
     type="password"
@@ -71,11 +73,11 @@ export default function LoginPage() {
 
 
 
-<button disabled={load} type="submit">{load?'Carregando . . .':'Entrar'}</button>
+<button data-test="login-btn" disabled={load} type="submit">{load?'Carregando . . .':'Entrar'}</button>
 
 </Formulario>
 
-<Gambiarra onClick={cadastro} disabled={load}>
+<Gambiarra data-test="signup-link" onClick={cadastro} disabled={load}>
 
 <a >Não tem uma conta? Cadastre-se!</a>
 
